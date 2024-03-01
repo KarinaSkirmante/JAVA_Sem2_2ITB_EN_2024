@@ -66,7 +66,7 @@ public class Professor {
 	@Override
 	public String toString()
 	{
-		return pID + ": " + name + " " + surname + "(" + profDegree + ")";
+		return pID + ": " + name + " " + surname + " (" + profDegree + ")";
 	}
 	//5. other functions
 
