@@ -48,11 +48,31 @@ public class Course {
 			this.professor = new Professor();
 	}
 
-	
-	
-	
-	
 	//3.constructors
+	public Course() {
+		setcID();
+		setTitle("JAVA");
+		setCreditPoints(4);
+		setProfessor(new Professor());
+	}
+	
+	public Course(String title, int creditPoints, Professor professor) {
+		setcID();
+		setTitle(title);
+		setCreditPoints(creditPoints);
+		setProfessor(professor);
+	}
+		
+	
 	//4.toSTring
+	@Override
+	public String toString() {
+		return cID + ": " + title + " (" + creditPoints + " CP), " 
+	+ professor.getName().charAt(0) + ". " + professor.getSurname();
+	}
+	
+	
+	
+	
 	//5.other functions
 }
