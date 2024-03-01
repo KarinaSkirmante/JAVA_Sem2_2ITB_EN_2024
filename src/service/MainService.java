@@ -2,6 +2,7 @@ package service;
 
 import model.Degree;
 import model.Professor;
+import model.Student;
 
 public class MainService {
 
@@ -12,6 +13,13 @@ public class MainService {
 		System.out.println(pr2);
 		Professor pr3 = new Professor("Estere", "Vitola", Degree.mg);
 		System.out.println(pr3);
+		
+		Student st1 = new Student();//Lara Bernardes student
+		System.out.println(st1);
+		Student st2 = new Student("Viktors", "Kokin");
+		System.out.println(st2);
+		Student st3 = new Student("Davyd", "Akimov");
+		System.out.println(st3);
 		
 
 	}

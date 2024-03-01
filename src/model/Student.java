@@ -54,7 +54,7 @@ public class Student {
 	}
 	
 	//4. toString
-	
+	@Override
 	public String toString() {
 		return sID + ": "+ name + " " + surname;
 	}
