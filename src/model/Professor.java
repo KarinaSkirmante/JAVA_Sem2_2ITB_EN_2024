@@ -8,7 +8,7 @@ public class Professor {
 	private Degree profDegree;
 	
 	private static long counter = 0;
-	
+	//2. set and get
 	public long getpID() {
 		return pID;
 	}
@@ -45,14 +45,29 @@ public class Professor {
 			this.profDegree = Degree.other;
 	}
 		
-	//2. set and get
-	
-	
-	
-	
 	
 	//3. constructors
+	public Professor() {
+		setpID();
+		setName("John");
+		setSurname("Big");
+		setProfDegree(Degree.other);
+	}
+	
+	public Professor(String name, String surname, Degree profDegree) {
+		setpID();
+		setName(name);
+		setSurname(surname);
+		setProfDegree(profDegree);
+	}
+	
+
 	//4. toString
+	@Override
+	public String toString()
+	{
+		return pID + ": " + name + " " + surname + "(" + profDegree + ")";
+	}
 	//5. other functions
 
 }
