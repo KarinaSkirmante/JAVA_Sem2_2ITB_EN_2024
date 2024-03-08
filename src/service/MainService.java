@@ -48,7 +48,8 @@ public class MainService {
 		Course c1 = new Course();
 		Course c2 = new Course("Data Structure", 2, pr3);
 		Course c3 = new Course("Networking", 4, pr4);
-		allCourses.addAll(Arrays.asList(c1, c2, c3));
+		Course c4 = new Course("Object Oriented Programming I", 4, pr3);
+		allCourses.addAll(Arrays.asList(c1, c2, c3, c4));
 		
 		for(Course tempCr: allCourses) {
 			System.out.println(tempCr);
@@ -59,9 +60,9 @@ public class MainService {
 		Grade gr3 = new Grade(10, st3, c2);// 10 for Davyd in Data Structure
 		Grade gr4 = new Grade(7, st2, c2); //7 for Viktors in Data Structure
 		Grade gr5 = new Grade(8, st2, c3);//8 for Viktors in Networking
-		Grade gr6 = new Grade(10, st2, c1);//8 for Viktors in Networking
-		
-		allGrades.addAll(Arrays.asList(gr1,gr2, gr3, gr4, gr5, gr6));
+		Grade gr6 = new Grade(10, st2, c1);//8 for Viktors in JAVA
+		Grade gr7 = new Grade(5, st1, c1);//5 for Lara in JAVA
+		allGrades.addAll(Arrays.asList(gr1,gr2, gr3, gr4, gr5, gr6, gr7));
 		
 		for(Grade tempGr: allGrades) {
 			System.out.println(tempGr);
@@ -80,6 +81,32 @@ public class MainService {
 			
 			System.out.println(st3.getName() + " " + st3.getSurname() + " -> "
 					+calculateWeightedAVGForStudent(st3));
+			
+			
+			System.out.println(c2.getTitle() + " -> " + calculateAVGInCourse(c2));
+			System.out.println(c3.getTitle() + " -> " + calculateAVGInCourse(c3));
+			
+			
+			System.out.println(pr4.getName() + " " + pr4.getSurname() + " leads " + 
+					calculateHowManyCoursesbyProfessor(pr4) + " courses");
+			
+			System.out.println(pr3.getName() + " " + pr3.getSurname() + " leads " + 
+					calculateHowManyCoursesbyProfessor(pr3) + " courses");
+			
+			System.out.println("------------------------");
+			for(Student tempSt: allStudents) {
+				System.out.println(tempSt.getName() + " " + tempSt.getSurname() + " -> "
+						+calculateAVGForStudent(tempSt));
+			}
+			
+			sortStudents();
+			System.out.println("------------------------");
+			for(Student tempSt: allStudents) {
+				System.out.println(tempSt.getName() + " " + tempSt.getSurname() + " -> "
+						+calculateAVGForStudent(tempSt));
+			}
+			
+			
 		}
 		catch (Exception e) {
 			System.out.println(e);
@@ -133,11 +160,59 @@ public class MainService {
 	}
 	
 	
+	public static float calculateAVGInCourse(Course inputCourse) throws Exception {
+		if(inputCourse == null) throw new Exception("Problems with input");
+		
+		
+		float sum = 0;
+		int howMany = 0;
+		
+		for(Grade tempGr: allGrades) {
+			if(tempGr.getCourse().equals(inputCourse)) {
+				sum = sum + tempGr.getValue();
+				howMany++;
+			}
+		}
+		
+		return sum/howMany;
+		
+	}
 	
+	public static int calculateHowManyCoursesbyProfessor(Professor inputProfessor) throws Exception {
+		if(inputProfessor == null) throw new Exception("Problems with input");
+		
+		int howMany = 0;
+		
+		
+		for(Course tempCr : allCourses) {
+			if(tempCr.getProfessor().equals(inputProfessor)) {
+				howMany++;
+			}
+		}
+		
+		return howMany;
+	}
 	
-	
-	
-	
+	public static void sortStudents() throws Exception {
+		
+		
+		for(int i = 0; i < allStudents.size(); i++) {
+			for(int j = 0; j < allStudents.size(); j++) {
+				
+				Student tempI = allStudents.get(i);
+				Student tempJ = allStudents.get(j);
+				if(calculateAVGForStudent(tempJ) < calculateAVGForStudent(tempI)) {
+					Student temp  =  allStudents.get(i);
+					allStudents.set(i, allStudents.get(j));
+					allStudents.set(j, temp);
+				}
+				
+				
+			}
+		}
+		
+		
+	}
 	
 	
 	
