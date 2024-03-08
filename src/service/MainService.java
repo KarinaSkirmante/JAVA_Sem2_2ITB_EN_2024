@@ -71,9 +71,15 @@ public class MainService {
 		{
 			System.out.println(st2.getName() + " " + st2.getSurname() + " -> "
 				+calculateAVGForStudent(st2));
+			
+			System.out.println(st2.getName() + " " + st2.getSurname() + " -> "
+					+calculateWeightedAVGForStudent(st2));
 		
 			System.out.println(st3.getName() + " " + st3.getSurname() + " -> "
 				+calculateAVGForStudent(st3));
+			
+			System.out.println(st3.getName() + " " + st3.getSurname() + " -> "
+					+calculateWeightedAVGForStudent(st3));
 		}
 		catch (Exception e) {
 			System.out.println(e);
@@ -82,8 +88,6 @@ public class MainService {
 		
 	}
 	
-	//JAVA 6 and DataStructure 8 AVG = (6+8)/2 = 7
-	//JAVA 6 (4CP) DataStructure 8 (2CP) = ((6 * 4CP) + (8 * 2CP))/ (4CP +2CP) = (24 +16)/6= 40/6 = 6.666
 	
 	
 	
@@ -102,12 +106,41 @@ public class MainService {
 			}
 		}
 		
+		
 		return sum/howMany;
+			
+	}
+	
+	//JAVA 6 and DataStructure 8 AVG = (6+8)/2 = 7
+	//JAVA 6 (4CP) DataStructure 8 (2CP) = ((6 * 4CP) + (8 * 2CP))/ (4CP +2CP) = (24 +16)/6= 40/6 = 6.666
+		
+	public static float calculateWeightedAVGForStudent(Student inputStudent) throws Exception {
+		if(inputStudent == null) throw new Exception("Problems with input");
+		
+		float sum = 0;
+		int howManyCP = 0;
 		
 		
+		for(Grade tempGr : allGrades) {
+			if(tempGr.getStudent().equals(inputStudent)) {
+				sum = sum + tempGr.getValue() * tempGr.getCourse().getCreditPoints();
+				howManyCP = howManyCP + tempGr.getCourse().getCreditPoints();
+			}
+		}
 		
-		
+		return sum/howManyCP;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
