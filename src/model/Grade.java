@@ -57,8 +57,31 @@ public class Grade {
 	
 	
 	//3. constructors
+	public Grade()
+	{
+		setgID();
+		setValue(4);
+		setStudent(new Student());
+		setCourse(new Course());
+	}
+	
+
+	public Grade(int value, Student student, Course course) {
+		setgID();
+		setValue(value);
+		setStudent(student);
+		setCourse(course);
+	}
 	
 	//4. toString
+	
+	//20000: Viktors Kokin gets 8 in JAVA
+	public String toString()
+	{
+		return gID + ": " + student.getName() + " " + student.getSurname() + " gets " + value +
+				" in " + course.getTitle();
+	}
+	
 	
 	//5. other functions
 
