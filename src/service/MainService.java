@@ -214,6 +214,20 @@ public class MainService {
 	
 	//TODO
 	//calculates how many professors have phd as degree
+	
+	public static int howManyProfessorsHavePHD() {
+		
+		int howMany = 0;
+		
+		for(Professor tempPr: allProfessors) {
+			if(tempPr.getProfDegree().equals(Degree.phd)) {
+				howMany++;
+			}
+		}
+		
+		return howMany;
+		
+	}
 	//calculates how many grades are smaller than 4 in specific course
 	//calculates how many CP professor need to lead
 	
