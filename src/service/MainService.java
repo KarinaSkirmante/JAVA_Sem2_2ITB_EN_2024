@@ -210,10 +210,12 @@ public class MainService {
 				
 			}
 		}
-		
-		
 	}
 	
+	//TODO
+	//calculates how many professors have phd as degree
+	//calculates how many grades are smaller than 4 in specific course
+	//calculates how many CP professor need to lead
 	
 	
 	
