@@ -1,5 +1,5 @@
 package model;
-
+//TODO just checking
 public class Student {
 	
 	//1. variables
