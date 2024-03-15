@@ -70,7 +70,7 @@ public class Student {
 	//4. toString
 	@Override
 	public String toString() {
-		return sID + ": "+ name + " " + surname + " [" + personCode + "]";
+		return sID + ": "+ name + " " + surname + "[" + personCode + "]";
 	}
 	
 	//5. other functions
