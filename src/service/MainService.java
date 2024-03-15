@@ -262,7 +262,27 @@ public class MainService {
 
 	}
 	
-	
+	public static void updateStudentByPersonCode(String inputName, String inputSurname, String inputPersonCode) throws Exception
+	{
+		//1. do validation
+		if( inputName == null || inputSurname == null || inputPersonCode == null)
+			throw new Exception("Problems with input args");
+		
+		//2. search the student by its personCode
+		for(Student tempSt: allStudents){
+			if(tempSt.getPersonCode().equals(inputPersonCode)) {
+				//3. update name and surname
+				tempSt.setName(inputName);
+				tempSt.setSurname(inputSurname);
+				return;
+			}
+		}
+		//4. throw an exceptions if there is not such student
+		throw new Exception("Student is not found");
+		
+		
+		
+	}
 	
 	
 	
