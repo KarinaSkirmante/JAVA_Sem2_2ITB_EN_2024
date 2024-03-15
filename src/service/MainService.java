@@ -239,5 +239,37 @@ public class MainService {
 		throw new Exception("Student is not found");
 
 	}
+	
+	
+	public static void createStudent(String inputName, String inputSurname, String inputPersonCode) throws Exception {
+		//TODO
+		//1. do validation
+		if( inputName == null || inputSurname == null || inputPersonCode == null)
+			throw new Exception("Problems with input args");
+		//2. need to go through every student in the allStudents arraylist
+		//3. need to check if there is already student with the same personCode
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonCode().equals(inputPersonCode)) {
+				//4. if it is - throw an exception
+				throw new Exception("Student is already in the system");
+			}
+		}
+		//5. if it is not - create a new student
+		Student student = new Student(inputName, inputSurname, inputPersonCode);
+		//6. store this student in allStudents arraylist
+		allStudents.add(student);
+		
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
