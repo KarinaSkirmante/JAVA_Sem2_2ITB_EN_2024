@@ -3,8 +3,7 @@ package model;
 public class Professor {
 	//1. variables
 	private long pID;
-	private String name;
-	private String surname;
+	
 	private Degree profDegree;
 	
 	private static long counter = 0;
