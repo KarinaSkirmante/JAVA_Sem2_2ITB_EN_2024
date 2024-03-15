@@ -284,7 +284,20 @@ public class MainService {
 		
 	}
 	
-	
+	public static void deleteStudentByPersonCode(String inputPersonCode) throws Exception {
+		if(inputPersonCode == null) throw new Exception("Problems with input args");
+		
+		
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonCode().equals(inputPersonCode)) {
+				allStudents.remove(tempSt);
+				return;
+			}
+		}
+		
+		throw new Exception("Student is not found");
+		
+	}
 	
 	
 	
