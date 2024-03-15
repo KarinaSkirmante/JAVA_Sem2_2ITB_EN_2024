@@ -94,6 +94,35 @@ public class MainService {
 				System.out.println(
 						tempSt.getName() + " " + tempSt.getSurname() + " -> " + calculateAVGForStudent(tempSt));
 			}
+			
+			
+			System.out.println("---------------CRUD-----------------");
+			
+			
+			Student temp = retreiveStudentByPersonCode("123456-09876");
+			System.out.println("Retrieve student->" + temp);
+			
+			createStudent("Sarah", "Green", "456789-87654");
+			
+			System.out.println("Create student testing (Sarah) -> ");
+			for (Student tempSt : allStudents) {
+				System.out.println(tempSt);
+			}
+			
+			
+			updateStudentByPersonCode("Viktors", "Sorkin", "123456-09876");
+			System.out.println("Update student testing (Viktors) -> ");
+			for (Student tempSt : allStudents) {
+				System.out.println(tempSt);
+			}
+			
+			deleteStudentByPersonCode("121298-67894");
+			
+			System.out.println("Delete student testing (Davyd) -> ");
+			for (Student tempSt : allStudents) {
+				System.out.println(tempSt);
+			}
+			
 
 		} catch (Exception e) {
 			System.out.println(e);
